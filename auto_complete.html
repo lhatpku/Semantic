@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type = "text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    <title>Semantic UI</title>
+    
+</head>
+<body>
+
+    <div class="ui container">
+        <div class="ui search">
+            <input class="prompt" type="text" placeholder="Search">
+            <div class="results"></div>
+        </div>
+        
+    </div>
+    
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+
+    <script>
+        var content = [
+            {
+                title: "Semantic UI",
+                description: "Best UI Framework out there",
+                url: "https://semantic-ui.com/"
+            },
+            {
+                title: "Bootstrap",
+                description: "UI Framework out there",
+                url: "https://getbootstrap.com/docs/3.4/css/"
+            },
+            {
+                title: "Zurb Foundation",
+                description: "Most Advanced Framework out there",
+                url: "https://foundation.zurb.com/"
+            },
+            {
+                title: "SkeletonCss",
+                description: "Works for small projects",
+                url: "http://getskeleton.com/"
+            }
+        ];
+
+        // $('.ui.search').search({
+        //     source: content,
+        //     searchFullText: false
+        // });
+
+        $('.ui.search').search({
+            apiSettings: {
+                url: "https://api.github.com/search/repositories?q={query}"
+            },
+            fields: {
+                results: 'items',
+                title: 'name', 
+                url: 'html_url'
+            }
+        })
+
+
+    </script>
+        
+</body>
+</html>
